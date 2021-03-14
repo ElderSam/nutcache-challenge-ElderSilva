@@ -1,8 +1,10 @@
 import React from 'react';
 import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
+import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 
 import Header from '../components/Header';
 import SideMenu from '../components/SideMenu';
+import PageHeader from '../components/PageHeader';
 
 
 const theme = createMuiTheme({
@@ -48,6 +50,11 @@ function App() {
       <SideMenu />
       <div className={classes.appMain}>
       <Header />
+      <PageHeader
+        title="Page Header"
+        subTitle="Page description"
+        icon={<PeopleOutlineTwoToneIcon fontSize="large" />}
+      />
       </div>
       <CssBaseline />
     </ThemeProvider>
