@@ -3,7 +3,7 @@ import { TextField } from '@material-ui/core';
 
 export default function Input(props) {
 
-    const { name, label, value, error=null, onChange } = props;
+    const { name, label, value, error=null, onChange, ...other } = props;
     let type="text";
 
     if(props.type === 'number') {
@@ -23,6 +23,7 @@ export default function Input(props) {
             type={type}
             value={value}
             onChange={onChange}
+            {...other}
             {...(error && {error:true,helperText:error})}
         />
     )
