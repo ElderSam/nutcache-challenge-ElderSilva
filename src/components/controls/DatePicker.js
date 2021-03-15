@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DatePickers(props) {
-    const { id, name, label, error } = props;
+    const { id, name, label, value, error=null, onChange } = props;
 
     const classes = useStyles();
 
@@ -25,6 +25,8 @@ export default function DatePickers(props) {
             name={name}
             label={label}
             type="date"
+            value={value}
+            onChange={onChange}
             defaultValue=""
             className={classes.textField}
             InputLabelProps={{

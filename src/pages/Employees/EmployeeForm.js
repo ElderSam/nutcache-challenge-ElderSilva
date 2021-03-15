@@ -5,6 +5,19 @@ import Controls from "../../components/controls/Controls";
 import { useForm, Form } from '../../components/useForm';
 import * as employeeService from "../../services/employeeService";
 
+const formatDate = (date) => {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
 const initialFValues = {
     id: 0,
@@ -16,7 +29,7 @@ const initialFValues = {
     //city: '',
 
     CPF: '',
-    startDate: '',
+    startDate: formatDate(Date.now()),
     teamId: '',
     //hireDate: new Date(),
     //isPermanent: false,
