@@ -77,6 +77,7 @@ export default function useTable(records, headCells,filterFn) {
         page={page}
         rowsPerPageOptions={pages}
         rowsPerPage={rowsPerPage}
+        labelRowsPerPage={"Registros por Página"} // "Rows per page"
         count={records.length}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
