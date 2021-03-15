@@ -39,6 +39,8 @@ export default function EmployeeForm() {
 
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
+        //console.log(fieldValues)
+
         if ('fullName' in fieldValues)
             temp.fullName = fieldValues.fullName ? "" : "Este campo é obrigatório."
         if ('email' in fieldValues) {
@@ -52,21 +54,25 @@ export default function EmployeeForm() {
         if ('birthDate' in fieldValues) {
           if(fieldValues.birthDate === "") {
             temp.birthDate = "Este campo é obrigatório."
+          }else {
+            temp.birthDate = ""
           }
         }
 
         if ('startDate' in fieldValues) {
             if(fieldValues.startDate === "") {
               temp.startDate = "Este campo é obrigatório."
+            }else {
+                temp.startDate = ""
             }
         }
 
         if ('gender' in fieldValues)
             temp.gender = fieldValues.gender ? "" : "Este campo é obrigatório."
-            
-            
+   
         /*if ('mobile' in fieldValues)
             temp.mobile = fieldValues.mobile.length > 9 ? "" : "Mínimo de 10 números é obrigatório."*/
+
         if ('CPF' in fieldValues) {
             const inputLength = fieldValues.CPF.length;
             if(fieldValues.CPF === "") {
@@ -80,10 +86,9 @@ export default function EmployeeForm() {
             }
         }
             
-        
-            
         /*if ('teamId' in fieldValues)
             temp.teamId = fieldValues.teamId.length !== 0 ? "" : "Este campo é obrigatório."*/
+
         setErrors({
             ...temp
         })
