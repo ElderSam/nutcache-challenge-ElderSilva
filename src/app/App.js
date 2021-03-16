@@ -1,5 +1,8 @@
 import React from 'react';
 import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { createStore } from "redux";
+import employeeReducer from "../reducers/employeeReducer";
+import { Provider } from 'react-redux';
 
 import SideMenu from "../components/SideMenu";
 import Header from "../components/Header";
@@ -45,16 +48,27 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
 
+  if (localStorage.getItem('employees') == null)
+    localStorage.setItem('employees', JSON.stringify([]))
+  let initialState = {
+    currentIndex: -1,
+    list: JSON.parse(localStorage.getItem('employees'))
+  }
+  const store = createStore(employeeReducer, initialState)
+
+
   return (
-    <ThemeProvider theme={theme}>
-      <SideMenu />
-      <div className={classes.appMain}>
-        <Header />
-        
-        <Employees />
-      </div>
-      <CssBaseline />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <SideMenu />
+        <div className={classes.appMain}>
+          <Header />
+          
+          <Employees />
+        </div>
+        <CssBaseline />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
