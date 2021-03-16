@@ -1,10 +1,15 @@
 # nutcache-challenge-ElderSilva
 Technical Challenge - Front-end Software Engineer (React)
 
-----------------------------------
 
-Create React project;
-$ create-react-app
+## Steps
+
+1. Install packages;
+``$ yarn install``
+
+2. Start the app;
+``$ yarn start``
+
 
 ----------------------------------
 # Getting Started with Create React App
